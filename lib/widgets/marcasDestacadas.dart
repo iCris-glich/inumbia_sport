@@ -50,12 +50,14 @@ class EstadoProductos extends State<ProductoReciente> {
           'https://static.nike.com/a/images/t_default/3c6a577e-0c5a-416b-9fc5-0e03a45ca90e/W+NIKE+DOWNSHIFTER+13.png',
       'category': 'Running',
       'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
     },
     {
       'image':
           'https://zonafutbolgt.com/wp-content/uploads/2024/10/IX4019-768x768.webp',
       'category': 'Running',
       'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
     },
   ];
 
@@ -71,10 +73,10 @@ class EstadoProductos extends State<ProductoReciente> {
       shrinkWrap: true,
       itemCount: productos.length,
       gridDelegate: const SliverGridDelegateWithFixedCrossAxisCount(
-        crossAxisCount: 4,
+        crossAxisCount: 5,
         mainAxisSpacing: 10,
         crossAxisSpacing: 10,
-        childAspectRatio: 0.8,
+        childAspectRatio: 0.8 / 1,
       ),
       itemBuilder: (context, index) {
         return MouseRegion(
@@ -83,64 +85,81 @@ class EstadoProductos extends State<ProductoReciente> {
           child: SizedBox(
             width: agrandar[index] ? 180 : 120,
             height: agrandar[index] ? 400 : 220,
-            child: Card(
-              child: Column(
-                children: [
-                  AnimatedSize(
-                    duration: const Duration(milliseconds: 200),
-                    curve: Curves.easeInOut,
-                    child: Image.network(
-                      productos[index]['image']!,
-                      width: agrandar[index] ? 140 : 100,
-                      height: agrandar[index] ? 140 : 100,
-                      loadingBuilder: (BuildContext context, Widget child,
-                          ImageChunkEvent? loadingProgress) {
-                        if (loadingProgress == null) return child;
-                        return Center(
-                          child: CircularProgressIndicator(
-                            value: loadingProgress.expectedTotalBytes != null
-                                ? loadingProgress.cumulativeBytesLoaded /
-                                    (loadingProgress.expectedTotalBytes ?? 1)
-                                : null,
-                          ),
-                        );
-                      },
-                    ),
-                  ),
-                  Text(
-                    productos[index]['category']!,
-                    style: const TextStyle(
-                      color: Colors.black26,
-                    ),
-                  ),
-                  Text(
-                    productos[index]['name']!,
-                    style: const TextStyle(
-                      color: Colors.black,
-                    ),
-                  ),
-                  if (agrandar[index]) ...[
-                    RatingBar.builder(
-                      initialRating: 3,
-                      minRating: 1,
-                      direction: Axis.horizontal,
-                      allowHalfRating: true,
-                      itemCount: 5,
-                      itemSize: 20,
-                      itemBuilder: (context, _) => const Icon(
-                        Icons.star,
-                        color: Colors.amber,
+            child: InkWell(
+              onTap: () {},
+              child: Card(
+                child: Column(
+                  children: [
+                    AnimatedContainer(
+                      duration: const Duration(milliseconds: 200),
+                      curve: Curves.easeInOut,
+                      child: Container(
+                        decoration: BoxDecoration(
+                            border: Border.all(
+                          color: Colors.black,
+                        )),
+                        child: Image.network(
+                          productos[index]['image']!,
+                          width: agrandar[index] ? 140 : 100,
+                          height: agrandar[index] ? 140 : 100,
+                          loadingBuilder: (BuildContext context, Widget child,
+                              ImageChunkEvent? loadingProgress) {
+                            if (loadingProgress == null) return child;
+                            return Center(
+                              child: CircularProgressIndicator(
+                                value: loadingProgress.expectedTotalBytes !=
+                                        null
+                                    ? loadingProgress.cumulativeBytesLoaded /
+                                        (loadingProgress.expectedTotalBytes ??
+                                            1)
+                                    : null,
+                              ),
+                            );
+                          },
+                        ),
                       ),
-                      onRatingUpdate: (rating) {},
                     ),
-                    const SizedBox(height: 10),
-                    ElevatedButton.icon(
-                      onPressed: () {},
-                      icon: const Icon(Icons.add_shopping_cart),
-                      label: const Text('Agregar al carrito'),
+                    Text(
+                      productos[index]['category']!,
+                      style: const TextStyle(
+                        color: Colors.black26,
+                      ),
                     ),
+                    Text(
+                      productos[index]['name']!,
+                      style: const TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    Text(
+                      productos[index]['precio']!,
+                      style: const TextStyle(
+                        color: Colors.black,
+                      ),
+                    ),
+                    if (agrandar[index]) ...[
+                      RatingBar.builder(
+                        initialRating: 3,
+                        minRating: 1,
+                        direction: Axis.horizontal,
+                        allowHalfRating: true,
+                        itemCount: 5,
+                        itemSize: 20,
+                        itemBuilder: (context, _) => const Icon(
+                          Icons.star,
+                          color: Colors.amber,
+                        ),
+                        onRatingUpdate: (rating) {},
+                      ),
+                      const SizedBox(height: 10),
+                      ElevatedButton.icon(
+                        onPressed: () {},
+                        icon: const Icon(Icons.add_shopping_cart),
+                        label: const Text('Agregar al carrito'),
+                      ),
+                    ],
                   ],
-                ],
+                ),
               ),
             ),
           ),

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:inumbia/widgets/customAppBar.dart';
 import 'package:inumbia/widgets/imagenes.dart';
 import 'package:inumbia/widgets/marcasDestacadas.dart';
+import 'package:inumbia/widgets/piesPagina.dart';
 
 class Principal extends StatefulWidget {
   const Principal({super.key});
@@ -13,15 +14,15 @@ class Principal extends StatefulWidget {
 class EstadoPrincipal extends State<Principal> {
   @override
   Widget build(BuildContext context) {
-    return const Scaffold(
+    return Scaffold(
       backgroundColor: Colors.white,
-      appBar: CustomAppBar(),
-      drawer: Drawer(),
+      appBar: const CustomAppBar(),
+      drawer: const Drawer(),
       body: SingleChildScrollView(
         child: Column(
           children: [
-            ImagenesPromocionales(),
-            Text(
+            const ImagenesPromocionales(),
+            const Text(
               'Líneas exclusivas',
               style: TextStyle(
                 fontSize: 35,
@@ -29,12 +30,13 @@ class EstadoPrincipal extends State<Principal> {
                 color: Colors.black,
               ),
             ),
-            MarcasDestacadas(),
-            SizedBox(
+            const MarcasDestacadas(),
+            const SizedBox(
               height: 10,
             ),
-            CarruselImagenes(),
-            ProductoReciente(),
+            const CarruselImagenes(),
+            const ProductoReciente(),
+            PiesPagina(),
           ],
         ),
       ),
