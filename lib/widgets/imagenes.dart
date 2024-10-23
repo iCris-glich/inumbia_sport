@@ -24,6 +24,29 @@ class ImagenesPromocionales extends StatelessWidget {
                   fit: BoxFit.cover,
                 ),
               ),
+              Positioned(
+                bottom: 50,
+                right: 20,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 4,
+                    backgroundColor: Colors.black,
+                    iconColor: Colors.white,
+                  ),
+                  child: const Row(
+                    children: [
+                      Text(
+                        'Leer más',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      Icon(
+                        Icons.arrow_right_alt,
+                      )
+                    ],
+                  ),
+                ),
+              ),
             ],
           ),
         ),
@@ -38,6 +61,29 @@ class ImagenesPromocionales extends StatelessWidget {
                   width: double.infinity,
                   height: screenHeight * 0.9,
                   fit: BoxFit.cover,
+                ),
+              ),
+              Positioned(
+                bottom: 50,
+                left: 20,
+                child: ElevatedButton(
+                  onPressed: () {},
+                  style: ElevatedButton.styleFrom(
+                    elevation: 4,
+                    backgroundColor: Colors.white,
+                    iconColor: Colors.black,
+                  ),
+                  child: const Row(
+                    children: [
+                      Text(
+                        'Leer más',
+                        style: TextStyle(color: Colors.black),
+                      ),
+                      Icon(
+                        Icons.arrow_right_alt,
+                      )
+                    ],
+                  ),
                 ),
               ),
             ],
