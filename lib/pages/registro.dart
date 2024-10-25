@@ -17,7 +17,7 @@ class EstadoRegistro extends State<Registro> {
       body: Center(
         child: Column(
           children: [
-            Text('Pagina 2'),
+            const Text('Pagina 2'),
             ElevatedButton(
               onPressed: () => context.pop(),
               child: const Text('Seguir a la siguiente pagina 2'),

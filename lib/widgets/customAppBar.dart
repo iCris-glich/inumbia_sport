@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -9,24 +11,22 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 4,
       backgroundColor: Colors.black,
       toolbarHeight: 180,
+      leading: IconButton(
+        onPressed: () {
+          Scaffold.of(context).openDrawer();
+        },
+        icon: const Icon(
+          Icons.menu,
+          color: Colors.white,
+          size: 30,
+        ),
+      ),
       title: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              Tooltip(
-                message: 'Inumbia Sport',
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Image.asset(
-                    'assets/images/logo.png',
-                    height: 80,
-                    width: 80,
-                    fit: BoxFit.contain,
-                  ),
-                ),
-              ),
               SizedBox(
                 width: 150,
                 child: TextField(
@@ -66,27 +66,27 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   children: [
                     TextButton(
                       onPressed: () {},
-                      child: Text('Caballero',
+                      child: const Text('Caballero',
                           style: TextStyle(color: Colors.white)),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child:
-                          Text('Dama', style: TextStyle(color: Colors.white)),
-                    ),
-                    TextButton(
-                      onPressed: () {},
-                      child: Text('Destacado',
+                      child: const Text('Dama',
                           style: TextStyle(color: Colors.white)),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child:
-                          Text('Sale', style: TextStyle(color: Colors.white)),
+                      child: const Text('Destacado',
+                          style: TextStyle(color: Colors.white)),
                     ),
                     TextButton(
                       onPressed: () {},
-                      child: Text('Nosotros',
+                      child: const Text('Sale',
+                          style: TextStyle(color: Colors.white)),
+                    ),
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text('Nosotros',
                           style: TextStyle(color: Colors.white)),
                     ),
                   ],
@@ -102,6 +102,112 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   }
 
   @override
-  Size get preferredSize =>
-      const Size.fromHeight(180); // Asegúrate que coincida con la altura
+  Size get preferredSize => const Size.fromHeight(180);
+}
+
+class SliverCustomAppBar extends SliverPersistentHeaderDelegate {
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overLapsContenido) {
+    const double alturaMin = 100;
+    const double alturaMax = 170;
+    final double proporcion =
+        1 - (shrinkOffset / (alturaMax - alturaMin)).clamp(0, 1);
+    const double logoPosition = 80;
+    final double tamanioLogo = 100 * proporcion + 50 * (1 - proporcion);
+
+    final double opacidadBoton = (shrinkOffset / alturaMax).clamp(0, 1);
+
+    return Container(
+      color: Colors.black,
+      child: Stack(
+        children: [
+          Opacity(
+            opacity: proporcion,
+            child: const CustomAppBar(),
+          ),
+          Positioned(
+            top: 20,
+            left: logoPosition,
+            child: SizedBox(
+              height: tamanioLogo,
+              width: tamanioLogo,
+              child: Image.asset(
+                'assets/images/logo.png',
+                fit: BoxFit.scaleDown,
+              ),
+            ),
+          ),
+          Positioned(
+            top: 20,
+            right: logoPosition,
+            child: Opacity(
+              opacity: opacidadBoton,
+              child: Wrap(
+                spacing: 10,
+                alignment: WrapAlignment.center,
+                children: [
+                  SizedBox(
+                    width: 150,
+                    child: TextField(
+                      decoration: InputDecoration(
+                        hintText: '¿Qué buscas?',
+                        filled: true,
+                        fillColor: Colors.white12,
+                        border: OutlineInputBorder(
+                          borderRadius: BorderRadius.circular(20),
+                          borderSide: BorderSide.none,
+                        ),
+                      ),
+                    ),
+                  ),
+                  const SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Caballero',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  const SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Dama',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  const SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Destacado',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  const SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Sale',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                  const SizedBox(width: 10),
+                  TextButton(
+                    onPressed: () {},
+                    child: const Text('Nosotros',
+                        style: TextStyle(color: Colors.white)),
+                  ),
+                ],
+              ),
+            ),
+          )
+        ],
+      ),
+    );
+  }
+
+  @override
+  double get maxExtent => 180;
+
+  @override
+  double get minExtent => 100;
+
+  @override
+  bool shouldRebuild(covariant SliverPersistentHeaderDelegate oldDelegate) {
+    return true;
+  }
 }

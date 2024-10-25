@@ -109,7 +109,7 @@ class CarruselImagenes extends StatelessWidget {
       items: imagenes.map((e) {
         return Container(
           width: MediaQuery.of(context).size.width,
-          decoration: BoxDecoration(color: Colors.black),
+          decoration: const BoxDecoration(color: Colors.black),
           child: Image.network(
             e,
             fit: BoxFit.cover,

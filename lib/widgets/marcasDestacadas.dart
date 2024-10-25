@@ -1,3 +1,5 @@
+// ignore_for_file: file_names
+
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 
@@ -54,10 +56,66 @@ class EstadoProductos extends State<ProductoReciente> {
     },
     {
       'image':
-          'https://zonafutbolgt.com/wp-content/uploads/2024/10/IX4019-768x768.webp',
-      'category': 'Running',
-      'name': 'Nike Dowshifter 13',
-      'precio': 'Q850'
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
+    },
+    {
+      'image':
+          'https://m.media-amazon.com/images/I/510FExer-nL._AC_UF1000,1000_QL80_.jpg',
+      'category': 'Fútbol',
+      'name': 'Puma Serie A',
+      'precio': 'Q450'
     },
   ];
 
@@ -95,9 +153,10 @@ class EstadoProductos extends State<ProductoReciente> {
                       curve: Curves.easeInOut,
                       child: Container(
                         decoration: BoxDecoration(
-                            border: Border.all(
-                          color: Colors.black,
-                        )),
+                          border: Border.all(
+                            color: Colors.black,
+                          ),
+                        ),
                         child: Image.network(
                           productos[index]['image']!,
                           width: agrandar[index] ? 140 : 100,

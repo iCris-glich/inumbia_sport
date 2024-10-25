@@ -16,15 +16,15 @@ class InumbiaSport extends StatelessWidget {
     routes: [
       GoRoute(
         path: '/principal',
-        builder: (context, state) => Principal(),
+        builder: (context, state) => const Principal(),
       ),
       GoRoute(
         path: '/sesion',
-        builder: (context, state) => Iniciodesesion(),
+        builder: (context, state) => const Iniciodesesion(),
       ),
       GoRoute(
         path: '/registro',
-        builder: (context, state) => Registro(),
+        builder: (context, state) => const Registro(),
       ),
     ],
   );
