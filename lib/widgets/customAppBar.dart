@@ -9,7 +9,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   Widget build(BuildContext context) {
     return AppBar(
       elevation: 4,
-      backgroundColor: Colors.black,
+      backgroundColor: const Color(0xffFF5722),
       toolbarHeight: 180,
       leading: IconButton(
         onPressed: () {
@@ -27,6 +27,17 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
+              InkWell(
+                onTap: () {},
+                child: Tooltip(
+                  message: 'Inumbia Juniors',
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 70,
+                    height: 70,
+                  ),
+                ),
+              ),
               SizedBox(
                 width: 150,
                 child: TextField(
@@ -113,13 +124,12 @@ class SliverCustomAppBar extends SliverPersistentHeaderDelegate {
     const double alturaMax = 170;
     final double proporcion =
         1 - (shrinkOffset / (alturaMax - alturaMin)).clamp(0, 1);
-    const double logoPosition = 80;
     final double tamanioLogo = 100 * proporcion + 50 * (1 - proporcion);
 
     final double opacidadBoton = (shrinkOffset / alturaMax).clamp(0, 1);
 
     return Container(
-      color: Colors.black,
+      color: const Color(0xffFF5722),
       child: Stack(
         children: [
           Opacity(
@@ -128,24 +138,30 @@ class SliverCustomAppBar extends SliverPersistentHeaderDelegate {
           ),
           Positioned(
             top: 20,
-            left: logoPosition,
-            child: SizedBox(
-              height: tamanioLogo,
-              width: tamanioLogo,
-              child: Image.asset(
-                'assets/images/logo.png',
-                fit: BoxFit.scaleDown,
+            left: 20,
+            child: Opacity(
+              opacity: opacidadBoton,
+              child: SizedBox(
+                height: tamanioLogo,
+                width: tamanioLogo,
+                child: Image.asset(
+                  'assets/images/logo.png',
+                  fit: BoxFit.scaleDown,
+                ),
               ),
             ),
           ),
+          const SizedBox(
+            width: 5,
+          ),
           Positioned(
             top: 20,
-            right: logoPosition,
+            right: 20,
             child: Opacity(
               opacity: opacidadBoton,
               child: Wrap(
                 spacing: 10,
-                alignment: WrapAlignment.center,
+                alignment: WrapAlignment.end,
                 children: [
                   SizedBox(
                     width: 150,
@@ -161,35 +177,17 @@ class SliverCustomAppBar extends SliverPersistentHeaderDelegate {
                       ),
                     ),
                   ),
-                  const SizedBox(width: 10),
-                  TextButton(
+                  IconButton(
                     onPressed: () {},
-                    child: const Text('Caballero',
-                        style: TextStyle(color: Colors.white)),
+                    icon: const Icon(
+                      Icons.search,
+                    ),
                   ),
-                  const SizedBox(width: 10),
-                  TextButton(
+                  IconButton(
                     onPressed: () {},
-                    child: const Text('Dama',
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                  const SizedBox(width: 10),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Destacado',
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                  const SizedBox(width: 10),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Sale',
-                        style: TextStyle(color: Colors.white)),
-                  ),
-                  const SizedBox(width: 10),
-                  TextButton(
-                    onPressed: () {},
-                    child: const Text('Nosotros',
-                        style: TextStyle(color: Colors.white)),
+                    icon: const Icon(
+                      Icons.car_crash,
+                    ),
                   ),
                 ],
               ),

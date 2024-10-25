@@ -18,7 +18,7 @@ class ImagenesPromocionales extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 16 / 9,
                 child: Image.network(
-                  'https://underarmour.scene7.com/is/image/Underarmour/SS24_CURRY_Curry11_Mouthguard_Site_5_4?qlt=75&fmt=jpg&wid=608&op_sharpen=1&',
+                  'https://blog.marti.mx/wp-content/uploads/2023/05/tenis-nike-para-ninos-jpeg.webp',
                   width: double.infinity,
                   height: screenHeight * 0.5,
                   fit: BoxFit.cover,
@@ -31,14 +31,14 @@ class ImagenesPromocionales extends StatelessWidget {
                   onPressed: () {},
                   style: ElevatedButton.styleFrom(
                     elevation: 4,
-                    backgroundColor: Colors.black,
-                    iconColor: Colors.white,
+                    backgroundColor: Colors.white,
+                    iconColor: const Color(0xff212121),
                   ),
                   child: const Row(
                     children: [
                       Text(
                         'Leer más',
-                        style: TextStyle(color: Colors.white),
+                        style: TextStyle(color: Color(0xffFF5722)),
                       ),
                       Icon(
                         Icons.arrow_right_alt,
@@ -57,7 +57,7 @@ class ImagenesPromocionales extends StatelessWidget {
               AspectRatio(
                 aspectRatio: 16 / 9,
                 child: Image.network(
-                  'https://brand.assets.adidas.com/image/upload/f_auto,q_auto,fl_lossy/if_w_gt_1920,w_1920/football_ss24_F50_fast_reborn_launch_pdp_statement_image_04_ll_d_55f606b461.jpg',
+                  'https://i.ebayimg.com/thumbs/images/g/w14AAOSwOCtmWlqA/s-l1200.jpg',
                   width: double.infinity,
                   height: screenHeight * 0.9,
                   fit: BoxFit.cover,
@@ -71,13 +71,13 @@ class ImagenesPromocionales extends StatelessWidget {
                   style: ElevatedButton.styleFrom(
                     elevation: 4,
                     backgroundColor: Colors.white,
-                    iconColor: Colors.black,
+                    iconColor: const Color(0xff212121),
                   ),
                   child: const Row(
                     children: [
                       Text(
                         'Leer más',
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: Color(0xff212121)),
                       ),
                       Icon(
                         Icons.arrow_right_alt,
@@ -100,16 +100,16 @@ class CarruselImagenes extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     List<dynamic> imagenes = [
-      'https://i.ebayimg.com/thumbs/images/g/gF0AAOSw2i9mwhiq/s-l1200.jpg',
-      'https://marcadegol.com/fotos//2019/01/puma-rs-x-trophies-1021x580.jpg',
-      'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a638f1f8841943e385d200eed9b280d0_9366/Racer_TR23_Shoes_Black_IG7348_01_standard.jpg'
+      'https://static.nike.com/a/images/t_PDP_936_v1/f_auto,q_auto:eco/6be24571-4541-4725-a095-68248ef081fb/COURT+BOROUGH+MID+2+%28GS%29.png',
+      'https://d3fvqmu2193zmz.cloudfront.net/items_2/uid_commerces.1/uid_items_2.FD2IYHPY9UCX/1500x1500/637D55A446046.webp',
+      'https://assets.adidas.com/images/h_840,f_auto,q_auto,fl_lossy,c_fill,g_auto/a638f1f8841943e385d200eed9b280d0_9366/Racer_TR23_Shoe(0xff212121)_IG7348_01_standard.jpg'
     ];
 
     return CarouselSlider(
       items: imagenes.map((e) {
         return Container(
           width: MediaQuery.of(context).size.width,
-          decoration: const BoxDecoration(color: Colors.black),
+          decoration: const BoxDecoration(color: Color(0xff212121)),
           child: Image.network(
             e,
             fit: BoxFit.cover,
