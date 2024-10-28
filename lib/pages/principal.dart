@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:inumbia/widgets/botones.dart';
-import 'package:inumbia/widgets/customAppBar.dart';
 import 'package:inumbia/widgets/customDrawer.dart';
 import 'package:inumbia/widgets/imagenes.dart';
 import 'package:inumbia/widgets/marcasDestacadas.dart';
 import 'package:inumbia/widgets/piesPagina.dart';
+import 'package:inumbia/widgets/sliverAppBar.dart';
 
 class Principal extends StatefulWidget {
   const Principal({super.key});
@@ -46,7 +46,7 @@ class EstadoPrincipal extends State<Principal> {
           ),
         ],
       ),
-      floatingActionButton: BotonDeWhatsApp(),
+      floatingActionButton: const BotonDeWhatsApp(),
     );
   }
 }
