@@ -1,5 +1,6 @@
 import 'package:carousel_slider/carousel_slider.dart';
 import 'package:flutter/material.dart';
+import 'package:inumbia/widgets/botones.dart';
 
 class ImagenesPromocionales extends StatelessWidget {
   const ImagenesPromocionales({super.key});
@@ -27,24 +28,9 @@ class ImagenesPromocionales extends StatelessWidget {
               Positioned(
                 bottom: 50,
                 right: 20,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 4,
-                    backgroundColor: Colors.white,
-                    iconColor: const Color(0xff212121),
-                  ),
-                  child: const Row(
-                    children: [
-                      Text(
-                        'Leer más',
-                        style: TextStyle(color: Color(0xffFF5722)),
-                      ),
-                      Icon(
-                        Icons.arrow_right_alt,
-                      )
-                    ],
-                  ),
+                child: BotonesElevados(
+                  accionDePresionar: () {},
+                  textoDeBoton: 'Leer Más',
                 ),
               ),
             ],

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:inumbia/widgets/botones.dart';
 import 'package:inumbia/widgets/customAppBar.dart';
 import 'package:inumbia/widgets/customDrawer.dart';
 import 'package:inumbia/widgets/imagenes.dart';
@@ -19,7 +20,7 @@ class EstadoPrincipal extends State<Principal> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: CustomDrawer(),
+      drawer: const CustomDrawer(),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: <Widget>[
@@ -45,6 +46,7 @@ class EstadoPrincipal extends State<Principal> {
           ),
         ],
       ),
+      floatingActionButton: BotonDeWhatsApp(),
     );
   }
 }
