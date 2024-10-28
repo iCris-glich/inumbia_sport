@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:inumbia/widgets/botones.dart';
-import 'package:inumbia/widgets/customDrawer.dart';
 import 'package:inumbia/widgets/imagenes.dart';
 import 'package:inumbia/widgets/marcasDestacadas.dart';
 import 'package:inumbia/widgets/piesPagina.dart';
@@ -20,7 +19,6 @@ class EstadoPrincipal extends State<Principal> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Colors.white,
-      drawer: const CustomDrawer(),
       body: CustomScrollView(
         controller: _scrollController,
         slivers: <Widget>[

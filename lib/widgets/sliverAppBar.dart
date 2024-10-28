@@ -36,45 +36,44 @@ class SliverCustomAppBar extends SliverPersistentHeaderDelegate {
               ),
             ),
           ),
-          const SizedBox(
-            width: 5,
-          ),
           Positioned(
             top: 20,
             right: 20,
-            child: Opacity(
-              opacity: opacidadBoton,
-              child: Wrap(
-                spacing: 10,
-                alignment: WrapAlignment.end,
-                children: [
-                  SizedBox(
-                    width: 150,
-                    child: TextField(
-                      decoration: InputDecoration(
-                        hintText: '¿Qué buscas?',
-                        filled: true,
-                        fillColor: Colors.white12,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(20),
-                          borderSide: BorderSide.none,
+            child: IgnorePointer(
+              ignoring: opacidadBoton ==
+                  0, // Desactiva los toques cuando no es visible
+              child: Opacity(
+                opacity: opacidadBoton,
+                child: Wrap(
+                  spacing: 10,
+                  alignment: WrapAlignment.end,
+                  children: [
+                    SizedBox(
+                      width: 150,
+                      child: TextField(
+                        enabled: opacidadBoton !=
+                            0, // Desactiva cuando no es visible
+                        decoration: InputDecoration(
+                          hintText: '¿Qué buscas?',
+                          filled: true,
+                          fillColor: Colors.white12,
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(20),
+                            borderSide: BorderSide.none,
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.search,
+                    IconButton(
+                      onPressed: opacidadBoton != 0 ? () {} : null,
+                      icon: const Icon(Icons.search),
                     ),
-                  ),
-                  IconButton(
-                    onPressed: () {},
-                    icon: const Icon(
-                      Icons.car_crash,
+                    IconButton(
+                      onPressed: opacidadBoton != 0 ? () {} : null,
+                      icon: const Icon(Icons.car_crash),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
           )

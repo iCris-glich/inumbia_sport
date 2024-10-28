@@ -1,6 +1,7 @@
 // ignore_for_file: file_names
 
 import 'package:flutter/material.dart';
+import 'package:go_router/go_router.dart';
 import 'package:logger/logger.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
@@ -12,40 +13,19 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       elevation: 4,
       backgroundColor: const Color(0xffFF5722),
       toolbarHeight: 180,
-      leading: IconButton(
-        onPressed: () {
-          Scaffold.of(context).openDrawer();
-        },
-        icon: const Icon(
-          Icons.menu,
-          color: Colors.white,
-          size: 30,
-        ),
-      ),
       title: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: [
-              InkWell(
-                onTap: () {},
-                child: Tooltip(
-                  message: 'Inumbia Juniors',
-                  child: Image.asset(
-                    'assets/images/logo.png',
-                    width: 70,
-                    height: 70,
-                  ),
-                ),
-              ),
               SizedBox(
-                width: 150,
+                width: 125,
                 child: TextField(
                   decoration: InputDecoration(
                     hintText: '¿Qué buscas?',
                     filled: true,
-                    fillColor: Colors.white12,
+                    fillColor: Colors.white,
                     border: OutlineInputBorder(
                       borderRadius: BorderRadius.circular(20),
                       borderSide: BorderSide.none,
@@ -53,23 +33,42 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   ),
                 ),
               ),
-              const Tooltip(
-                message: 'Tú Usuario',
-                child: Icon(
-                  Icons.person_2_outlined,
-                  color: Colors.white,
+              InkWell(
+                onTap: () {},
+                child: Tooltip(
+                  message: 'Inumbia Juniors',
+                  child: Image.asset(
+                    'assets/images/logo.png',
+                    width: 75,
+                    height: 75,
+                  ),
                 ),
               ),
-              const Tooltip(
-                message: 'Tú Carrito',
-                child: Icon(
-                  Icons.card_giftcard,
-                  color: Colors.white,
+              Tooltip(
+                message: 'Tú Usuario',
+                child: IconButton(
+                  onPressed: () => context.go('/principal'),
+                  icon: const Icon(
+                    Icons.person_2_outlined,
+                    color: Colors.white,
+                    size: 35,
+                  ),
                 ),
-              )
+              ),
+              Tooltip(
+                message: 'Tú Carrito',
+                child: IconButton(
+                  onPressed: () {},
+                  icon: const Icon(
+                    Icons.card_giftcard,
+                    color: Colors.white,
+                    size: 35,
+                  ),
+                ),
+              ),
             ],
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 30),
           LayoutBuilder(
             builder: (context, constraints) {
               if (constraints.maxWidth > 600) {
