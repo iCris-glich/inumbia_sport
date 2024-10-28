@@ -30,7 +30,7 @@ class ImagenesPromocionales extends StatelessWidget {
                 right: 20,
                 child: BotonesElevados(
                   accionDePresionar: () {},
-                  textoDeBoton: 'Leer Más',
+                  textoDeBoton: 'Leer más',
                 ),
               ),
             ],
@@ -52,24 +52,9 @@ class ImagenesPromocionales extends StatelessWidget {
               Positioned(
                 bottom: 50,
                 left: 20,
-                child: ElevatedButton(
-                  onPressed: () {},
-                  style: ElevatedButton.styleFrom(
-                    elevation: 4,
-                    backgroundColor: Colors.white,
-                    iconColor: const Color(0xff212121),
-                  ),
-                  child: const Row(
-                    children: [
-                      Text(
-                        'Leer más',
-                        style: TextStyle(color: Color(0xff212121)),
-                      ),
-                      Icon(
-                        Icons.arrow_right_alt,
-                      )
-                    ],
-                  ),
+                child: BotonesElevados(
+                  accionDePresionar: () {},
+                  textoDeBoton: 'Leer más',
                 ),
               ),
             ],
