@@ -2,7 +2,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
-import 'package:logger/logger.dart';
+import 'package:inumbia/widgets/menuDesplegable.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   const CustomAppBar({super.key});
@@ -34,7 +34,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 ),
               ),
               InkWell(
-                onTap: () {},
+                onTap: () => context.pushReplacementNamed('/principal'),
                 child: Tooltip(
                   message: 'Inumbia Juniors',
                   child: Image.asset(
@@ -47,10 +47,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
               Tooltip(
                 message: 'Tú Usuario',
                 child: IconButton(
-                  onPressed: () => context.go('/principal'),
+                  onPressed: () => context.go('/sesion'),
                   icon: const Icon(
                     Icons.person_2_outlined,
-                    color: Colors.white,
+                    color: Colors.black87,
                     size: 35,
                   ),
                 ),
@@ -61,7 +61,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   onPressed: () {},
                   icon: const Icon(
                     Icons.card_giftcard,
-                    color: Colors.white,
+                    color: Colors.black87,
                     size: 35,
                   ),
                 ),
@@ -75,91 +75,45 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                 return Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: [
-                    PopupMenuButton<String>(
-                      onSelected: (String value) {
-                        Logger().i("Seleccionó $value");
-                      },
-                      itemBuilder: (BuildContext context) {
-                        return <String>[
-                          'Tenis',
-                          'Ropa',
-                          'Accesorios',
-                          'Balones',
-                        ].map((String choice) {
-                          return PopupMenuItem<String>(
-                            value: choice,
-                            child: Text(choice),
-                          );
-                        }).toList();
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: const Row(
-                          children: [
-                            Text(
-                              'Niño',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Icon(
-                              Icons.arrow_downward_sharp,
-                              size: 15,
-                              color: Colors.white,
-                            ),
-                          ],
-                        ),
-                      ),
-                    ),
-                    PopupMenuButton<String>(
-                      onSelected: (String value) {
-                        Logger().i("Seleccionó $value");
-                      },
-                      itemBuilder: (BuildContext context) {
-                        return <String>[
-                          'Tenis',
-                          'Ropa',
-                          'Accesorios',
-                          'Balones',
-                        ].map((String choice) {
-                          return PopupMenuItem<String>(
-                            value: choice,
-                            child: Text(choice),
-                          );
-                        }).toList();
-                      },
-                      child: Container(
-                        padding: const EdgeInsets.symmetric(horizontal: 16),
-                        child: const Row(
-                          children: [
-                            Text(
-                              'Niña',
-                              style: TextStyle(
-                                fontSize: 15,
-                                color: Colors.white,
-                              ),
-                            ),
-                            SizedBox(
-                              width: 5,
-                            ),
-                            Icon(
-                              Icons.arrow_downward_sharp,
-                              size: 15,
-                              color: Colors.white,
-                            ),
-                          ],
+                    TextButton(
+                      onPressed: () {},
+                      child: const Text(
+                        'Nuevo ingreso',
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
                         ),
                       ),
                     ),
                     TextButton(
                       onPressed: () {},
                       child: const Text(
-                        'Sale',
-                        style: TextStyle(color: Colors.white),
+                        'Top',
+                        style: TextStyle(
+                          color: Colors.black87,
+                          fontWeight: FontWeight.bold,
+                          fontSize: 15,
+                        ),
+                      ),
+                    ),
+                    const MenuDesplegable1(),
+                    const MenuDesplegable2(),
+                    Container(
+                      decoration: BoxDecoration(
+                        color: const Color.fromARGB(234, 214, 2, 2),
+                        borderRadius: BorderRadius.circular(13),
+                      ),
+                      child: TextButton(
+                        onPressed: () {},
+                        child: const Text(
+                          '\$ale',
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontWeight: FontWeight.bold,
+                            fontSize: 15,
+                          ),
+                        ),
                       ),
                     ),
                   ],

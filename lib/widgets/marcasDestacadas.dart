@@ -72,7 +72,41 @@ class EstadoProductos extends State<ProductoReciente> {
       'name': 'Nike Dowshifter 13',
       'precio': 'Q850'
     },
-    // Agrega más productos aquí
+    {
+      'image':
+          'https://static.nike.com/a/images/t_default/3c6a577e-0c5a-416b-9fc5-0e03a45ca90e/W+NIKE+DOWNSHIFTER+13.png',
+      'category': 'Running',
+      'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
+    },
+    {
+      'image':
+          'https://static.nike.com/a/images/t_default/3c6a577e-0c5a-416b-9fc5-0e03a45ca90e/W+NIKE+DOWNSHIFTER+13.png',
+      'category': 'Running',
+      'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
+    },
+    {
+      'image':
+          'https://static.nike.com/a/images/t_default/3c6a577e-0c5a-416b-9fc5-0e03a45ca90e/W+NIKE+DOWNSHIFTER+13.png',
+      'category': 'Running',
+      'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
+    },
+    {
+      'image':
+          'https://static.nike.com/a/images/t_default/3c6a577e-0c5a-416b-9fc5-0e03a45ca90e/W+NIKE+DOWNSHIFTER+13.png',
+      'category': 'Running',
+      'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
+    },
+    {
+      'image':
+          'https://static.nike.com/a/images/t_default/3c6a577e-0c5a-416b-9fc5-0e03a45ca90e/W+NIKE+DOWNSHIFTER+13.png',
+      'category': 'Running',
+      'name': 'Nike Dowshifter 13',
+      'precio': 'Q850'
+    },
   ];
 
   void toggleExpansion(int index) {

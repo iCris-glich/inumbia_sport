@@ -18,7 +18,7 @@ class EstadoPrincipal extends State<Principal> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: Colors.black87,
       body: CustomScrollView(
         controller: _scrollController,
         slivers: <Widget>[
