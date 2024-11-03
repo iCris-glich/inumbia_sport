@@ -1,7 +1,7 @@
-// ignore_for_file: file_names
-
 import 'package:flutter/material.dart';
+import 'package:flutter_animate/flutter_animate.dart';
 import 'package:go_router/go_router.dart';
+import 'package:inumbia/widgets/botones.dart';
 import 'package:inumbia/widgets/customTextField.dart';
 
 class Iniciodesesion extends StatefulWidget {
@@ -25,15 +25,20 @@ class EstadoSesion extends State<Iniciodesesion> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(217, 0, 0, 0),
+      backgroundColor: const Color.fromARGB(217, 255, 255, 255),
       body: Container(
         padding: const EdgeInsets.all(15),
         child: SingleChildScrollView(
           child: Container(
-            decoration: const BoxDecoration(boxShadow: [
-              BoxShadow(
-                  color: Colors.black12, blurRadius: 8, offset: Offset(0, 4))
-            ]),
+            decoration: const BoxDecoration(
+              boxShadow: [
+                BoxShadow(
+                  color: Colors.black12,
+                  blurRadius: 8,
+                  offset: Offset(0, 4),
+                ),
+              ],
+            ),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
@@ -42,19 +47,19 @@ class EstadoSesion extends State<Iniciodesesion> {
                   width: 300,
                   height: 300,
                   fit: BoxFit.fitHeight,
-                ),
+                ).animate().fadeIn(duration: 800.ms).slideX(begin: -0.3),
                 Container(
                   padding:
                       const EdgeInsets.only(left: 50, bottom: 25, right: 10),
                   child: const Text(
-                    '¡Crea tu cuenta Inumbia!',
+                    'Crea una cuenta con nosotros',
                     style: TextStyle(
-                      fontFamily: 'Shrik',
                       fontSize: 40,
-                      color: Color.fromARGB(255, 255, 255, 255),
+                      fontWeight: FontWeight.bold,
+                      color: Colors.black,
                     ),
                   ),
-                ),
+                ).animate().fadeIn(duration: 1000.ms).slideX(begin: 0.3),
                 Tooltip(
                   message: 'Email',
                   child: Customtextfield(
@@ -63,10 +68,8 @@ class EstadoSesion extends State<Iniciodesesion> {
                     obscuro: false,
                     tipoTexto: TextInputType.emailAddress,
                   ),
-                ),
-                const SizedBox(
-                  height: 30,
-                ),
+                ).animate().fadeIn().scale(duration: 800.ms),
+                const SizedBox(height: 30),
                 Tooltip(
                   message: 'Contraseña',
                   child: Customtextfield(
@@ -75,14 +78,16 @@ class EstadoSesion extends State<Iniciodesesion> {
                     obscuro: true,
                     tipoTexto: TextInputType.text,
                   ),
-                ),
-                const SizedBox(
-                  height: 15,
-                ),
+                ).animate().fadeIn().scale(duration: 900.ms),
+                const SizedBox(height: 15),
                 TextButton(
-                  onPressed: () => context.push('/InumbiaSport/registro'),
+                  onPressed: () => context.push('/registro'),
                   child: const Text('¿ No tienes una cuenta ?'),
-                ),
+                ).animate().fadeIn(duration: 500.ms).slideX(begin: 0.3),
+                BotonesUsuario(
+                  accionDePresiona: () {},
+                  texto: 'Continuar',
+                ).animate().fadeIn(duration: 500.ms).slideX(begin: -0.3),
               ],
             ),
           ),

@@ -22,7 +22,7 @@ class Customtextfield extends StatelessWidget {
       controller: controlador,
       decoration: InputDecoration(
         filled: true,
-        fillColor: const Color(0xFFAEDFF7),
+        fillColor: const Color.fromARGB(255, 247, 208, 174),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(5),
           borderSide: const BorderSide(color: Colors.red, width: 2),
